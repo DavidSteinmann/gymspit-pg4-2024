@@ -32,16 +32,21 @@ internal class Program
     {
 
         CarBuilder carBuilder = new CarBuilder();
+
         carBuilder.WithName("My Skoda");
         carBuilder.WithDescription("skoda octavia 3 2017");
+
+        carBuilder.WithId(10234);
+        Car car1 = carBuilder.Build();
+        Console.WriteLine(car1.Id);
+
         carBuilder.WithId(1235);
-        // I don't have to call all methods
+        Car car2 = carBuilder.Build();
 
-        // Crete the final car
-        Car car = carBuilder.Build();
+        Console.WriteLine(car1.Id);
+        Console.WriteLine(car2.Id);
 
-
-
+        return;
 
 
 
