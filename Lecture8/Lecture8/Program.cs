@@ -11,9 +11,27 @@ internal class Program
         var add = new AdditionExpression(num1, num2);
         var divide = new DivisionExpression(add, num3);
 
-        var result = new ExpressionBuilder(0)
-            .Add(new AdditionExpression(num1, num2)).Subtract(2).Multiply(8).Calculate();
+        IExpression resultExpression = new ExpressionBuilder(7)
+            .Add(16).Divide(
+                new ExpressionBuilder(8).Subtract(1).Build()
+            ).Build();
 
-        Console.WriteLine($"result: {result}");
+        Console.WriteLine($"result: {resultExpression.Evaluate()}");
+
+
+        // Iterator design pattern:
+
+        var playlist = new Playlist(new List<Song>() { 
+            new Song(2024, "Song1"),
+            new Song(2023, "Song2"),
+            new Song(1999, "Darude sandstorm"),
+        });
+
+        // Iterator design pattern allows us to easily get all
+        // from a collection. We don't need to know the exact implementation
+        foreach (var song in playlist)
+        {
+            Console.WriteLine(song.Name);
+        }
     }
 }

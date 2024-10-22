@@ -31,10 +31,22 @@ namespace Lecture8
             return this;
         }
 
+        public ExpressionBuilder Subtract(double num)
+        {
+            var exp = new NumberExpression(num);
+            return Subtract(exp);
+        }
+
         public ExpressionBuilder Subtract(IExpression exp)
         {
             expression = new SubtractionExpression(expression, exp);
             return this;
+        }
+
+        public ExpressionBuilder Multiply(double num)
+        {
+            var exp = new NumberExpression(num);
+            return Multiply(exp);
         }
 
         public ExpressionBuilder Multiply(IExpression exp)
@@ -43,9 +55,21 @@ namespace Lecture8
             return this;
         }
 
-        public double Calculate()
+        public ExpressionBuilder Divide(double num)
         {
-            return expression.Evaluate();
+            var exp = new NumberExpression(num);
+            return Divide(exp);
+        }
+
+        public ExpressionBuilder Divide(IExpression exp)
+        {
+            expression = new DivisionExpression(expression, exp);
+            return this;
+        }
+
+        public IExpression Build()
+        {
+            return expression;
         }
     }
 }
