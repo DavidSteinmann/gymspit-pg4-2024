@@ -1,4 +1,5 @@
-﻿namespace Lecture8;
+﻿
+namespace Lecture8;
 
 internal class Program
 {
@@ -33,5 +34,7 @@ internal class Program
         {
             Console.WriteLine(song.Name);
         }
+
+        var bike = new MyNamespace1.Bike();
     }
 }
