@@ -69,5 +69,22 @@ namespace TestProject1
 
             Assert.Equal(expected, result);
         }
+
+        [Theory]
+        [InlineData(6, 2, 4)]
+        [InlineData(453, 0, 453)]
+        [InlineData(-12, -6, -6)]
+        [InlineData(1, 1, 0)]
+        public void Subtract_ShouldReturnDifferenceOfTwoNumbers(int a, int b, int expected)
+        {
+            // Arrange
+            var calculator = new Calculator();
+
+            // Act
+            var result = calculator.Subtract(a, b);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
     }
 }

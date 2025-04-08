@@ -21,5 +21,10 @@ namespace UnitTestExample
             int result = v1 * v2;
             return result;
         }
+
+        public int Subtract(int a, int b)
+        {
+            return a - b;
+        }
     }
 }
