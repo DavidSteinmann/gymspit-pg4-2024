@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@model Coffee[]
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+	<table>
+		<tr>
+			<th>@nameof(Coffee.Image)</th>
+			<th>@nameof(Coffee.Title)</th>
+			<th>@nameof(Coffee.Description)</th>
+		</tr>
+		@foreach (var coffee in Model)
+		{
+			<tr>
+				<td>
+					<img src="@coffee.Image" width="128" />
+				</td>
+				<td>@coffee.Title</td>
+				<td>@coffee.Description</td>
+			</tr>
+		}
+	</table>
+
+
+</div>
